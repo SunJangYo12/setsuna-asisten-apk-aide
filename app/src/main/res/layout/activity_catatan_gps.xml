@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="#AA503500"
+    android:orientation="vertical">
+
+	<EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/catatan_new_edt_gps_koor"
+        android:hint="Koordinat ..."/>
+	<EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/catatan_new_edt_gps_msg"
+        android:hint="Message..."/>
+        
+	<Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/catatan_new_btn_gps"
+        android:text="Get gps"
+		android:layout_gravity="center"/>
+	
+	<ScrollView
+        android:layout_width="match_parent"
+		android:id="@+id/console_scroll_note_gps"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/catatan_layout_gps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+        </LinearLayout>
+    </ScrollView>
+        
+</LinearLayout>

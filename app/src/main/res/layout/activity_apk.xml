@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="#000000"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/apk_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Systems APK" />
+
+    <ListView
+        android:id="@+id/activity_apk_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

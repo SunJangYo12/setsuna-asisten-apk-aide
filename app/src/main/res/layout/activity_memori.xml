@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@xml/gradient_bg_1"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/activity_memori_status"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="2sp"
+        android:textSize="12sp"
+        android:background="@xml/gradient_bg_2"/>
+    <ListView
+        android:id="@+id/activity_memori_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:listSelector="@xml/list_selector"/>
+</LinearLayout>

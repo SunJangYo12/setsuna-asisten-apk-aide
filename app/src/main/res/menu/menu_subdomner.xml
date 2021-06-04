@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/subdomner_menu_clear"
+        android:title="Clear"
+        android:showAsAction="always"/>
+
+    <item
+        android:id="@+id/subdomner_menu_about"
+        android:icon="@android:drawable/ic_menu_help"
+        android:title="About"
+        android:showAsAction="always"/>
+
+</menu>
+

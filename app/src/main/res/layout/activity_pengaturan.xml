@@ -1,0 +1,59 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="391dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Switch
+                android:id="@+id/pengaturan_sw_service"
+                android:layout_width="267dp"
+                android:layout_height="52dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:text="Background Services  " />
+
+            <Switch
+                android:id="@+id/pengaturan_sw_touch"
+                android:layout_width="267dp"
+                android:layout_height="52dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:text="Asisten touch  " />
+
+            <Switch
+                android:id="@+id/pengaturan_sw_notificatatan"
+                android:layout_width="267dp"
+                android:layout_height="52dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:text="Notifikasi Catatan  " />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="20dp"
+        android:text="Allow izin penyimpana Setings>aplikasi>izin lainya" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="20dp"
+        android:text="Allow izin kamera Setings>aplikasi>izin lainya" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="20dp"
+        android:text="Allow izin system alert Setings>aplikasi>izin lainya" />
+
+</LinearLayout>

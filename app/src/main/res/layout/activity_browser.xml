@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:keepScreenOn="true"
+    android:layout_height="fill_parent">
+    <!-- fake focuS -->
+    <View
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_width="0px"
+        android:layout_height="0px" />
+    <AutoCompleteTextView
+        android:id="@+id/browser_goto_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="URL webkit"
+        android:singleLine="true"/>
+
+    <FrameLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <WebView
+            android:id="@+id/browser_web_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <RelativeLayout
+            android:id="@+id/browser_webTitlePanel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@xml/fon_title">
+
+            <ImageView
+                android:id="@+id/browser_favicon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1px"
+                android:src="@drawable/favicon"/>
+            <TextView
+                android:id="@+id/browser_html_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                android:layout_toRightOf="@id/browser_favicon"
+                android:text="Title"
+                android:singleLine="true"/>
+        </RelativeLayout>
+        <ProgressBar
+            android:id="@+id/browser_progressBar_url_loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            style="?android:attr/progressBarStyleLarge"/>
+    </FrameLayout>
+</LinearLayout>

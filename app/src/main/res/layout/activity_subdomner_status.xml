@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:keepScreenOn="true"
+    android:gravity="top|center"
+    android:layout_gravity="center|fill_vertical|fill_horizontal"
+    android:background="#000000">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BACK"
+        android:textColor="#000000"
+        android:backgroundTint="#FFEE00"
+        android:textStyle="bold"
+        android:id="@+id/subdomner_statusBack"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:buttonTint="#00FF00"
+            android:id="@+id/subdomner_okresponse"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="200 OK"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:typeface="monospace"
+            android:textColor="#00FF00"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:buttonTint="#FF0F00"
+            android:id="@+id/subdomner_otherresponse"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="0, 302, 301, 404"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            android:typeface="monospace"
+            android:textColor="#FF0F00"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/subdomner_riwayat"
+        android:background="#FFEE00"
+        android:layout_marginBottom="16dp"/>
+
+</LinearLayout>
+

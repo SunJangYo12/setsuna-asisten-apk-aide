@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Asisten</string>
+    <string name="task_disp_cell">Cell</string>
+    <string name="task_disp_in">Bytes in</string>
+    <string name="task_disp_out">Bytes out</string>
+    <string name="task_disp_wifi">Wifi</string>
+    <string name="task_disp_cpu">CPU load</string>
+    <string name="task_disp_cpu_type"> (app/kernel)</string>
+</resources>

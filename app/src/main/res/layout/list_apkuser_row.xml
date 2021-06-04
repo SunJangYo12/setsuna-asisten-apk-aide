@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" android:layout_height="fill_parent" android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="32dip"
+                android:layout_height="32dip"
+                android:id="@+id/list_apk_user_appIcon" />
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/list_apk_user_textViewNameItem"
+                        android:text="App name"
+                        android:textColor="#00aa00"
+                        android:paddingLeft="10dip"
+                        android:textSize="20dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/list_apk_user_textViewSize"
+                        android:layout_alignParentRight="true"
+                        android:paddingTop="5dip"
+                        android:textColor="#00aa00"
+                        android:text="x MB"
+                        />
+                </RelativeLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/list_apk_user_textViewPackageItem"
+                    android:paddingTop="5dip"
+                    android:paddingLeft="10dip"
+                    android:text="Package name"
+                    android:typeface="monospace"
+                    android:textSize="13dp"
+                    android:textColor="#00aa00"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
