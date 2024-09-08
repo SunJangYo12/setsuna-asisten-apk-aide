@@ -690,6 +690,7 @@ public class MainBrowser extends Activity {
         menu.add(Menu.FIRST, 6, 1, "Halaman").setIcon(R.drawable.ic_menu_html);
         menu.add(Menu.FIRST, 7, 1, "Subdomner indoxploit").setIcon(R.drawable.ic_menu_html);
         menu.add(Menu.FIRST, 8, 1, "Exit").setIcon(R.drawable.ic_menu_html);
+        menu.add(Menu.FIRST, 9, 1, "Remote shortcut").setIcon(R.drawable.ic_menu_html);
         return true;
     }
     @Override
@@ -808,6 +809,10 @@ public class MainBrowser extends Activity {
         }
         if (item.getItemId() == 8) {
             finish();
+        }
+        if (item.getItemId() == 9) {
+            Toast.makeText(MainBrowser.this, "Remote audacious player", Toast.LENGTH_LONG).show();
+            MainBrowser.this.startActivity(new Intent(MainBrowser.this, MainBrowserNotif.class));
         }
         return true;
     }

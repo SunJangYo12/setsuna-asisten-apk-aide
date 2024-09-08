@@ -64,6 +64,7 @@
             android:screenOrientation="portrait"></activity>
 
         <activity android:name="com.setsunajin.asisten.MainApkExtrak" android:label="Apk Extraktor"></activity>
+        <activity android:name="com.setsunajin.asisten.MainBrowserNotif" android:label="Browser Notif"></activity>
         <activity android:name="com.setsunajin.asisten.MainKompas" android:label="Kompas"></activity>
         <activity android:name="com.setsunajin.asisten.MainPengaturan" android:label="Asisten Pengaturan"></activity>
         <activity android:name="com.setsunajin.asisten.MainTerminal" android:label="Linux Shell"></activity>
