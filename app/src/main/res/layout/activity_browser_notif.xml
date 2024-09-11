@@ -1,50 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="10dp">
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:padding="10dp">
 
-    <ImageButton
-        android:id="@+id/notif_btn_prev"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_media_previous"
-        android:background="?android:attr/selectableItemBackground"
-        android:contentDescription="Previous" />
+	<ImageButton
+		android:id="@+id/notif_btn_prev"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginRight="27dp"
+		android:src="@android:drawable/ic_media_previous"
+		android:background="?android:attr/selectableItemBackground"
+		android:contentDescription="Previous"/>
 
-    <ImageButton
-        android:id="@+id/notif_btn_pause"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/notif_btn_prev"
-        android:src="@android:drawable/ic_media_pause"
-        android:background="?android:attr/selectableItemBackground"
-        android:contentDescription="Pause" />
+	<ImageButton
+		android:layout_marginRight="27dp"
+		android:id="@+id/notif_btn_pause"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_toRightOf="@id/notif_btn_prev"
+		android:src="@android:drawable/ic_media_pause"
+		android:background="?android:attr/selectableItemBackground"
+		android:contentDescription="Pause"/>
 
-    <ImageButton
-        android:id="@+id/notif_btn_next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/notif_btn_pause"
-        android:src="@android:drawable/ic_media_next"
-        android:background="?android:attr/selectableItemBackground"
-        android:contentDescription="Next" />
+	<ImageButton
+		android:layout_marginRight="27dp"
+		android:id="@+id/notif_btn_next"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_toRightOf="@id/notif_btn_pause"
+		android:src="@android:drawable/ic_media_next"
+		android:background="?android:attr/selectableItemBackground"
+		android:contentDescription="Next"/>
 
-    <ImageButton
-        android:id="@+id/notif_btn_volume_up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:src="@android:drawable/ic_menu_add"
-        android:background="?android:attr/selectableItemBackground"
-        android:contentDescription="Volume Up" />
+	<TextView
+		android:textSize="20dp"
+		android:text="Vol +"
+		android:layout_marginLeft="27dp"
+		android:id="@+id/notif_btn_volume_up"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+		android:background="?android:attr/selectableItemBackground"
+		android:contentDescription="Volume Up"/>
 
-    <ImageButton
-        android:id="@+id/notif_btn_volume_down"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/notif_btn_volume_up"
-        android:src="@android:drawable/ic_menu_revert"
-        android:background="?android:attr/selectableItemBackground"
-        android:contentDescription="Volume Down" />
+	<TextView
+		android:textSize="20dp"
+		android:text="Vol -"
+		android:id="@+id/notif_btn_volume_down"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_toLeftOf="@id/notif_btn_volume_up"
+		android:background="?android:attr/selectableItemBackground"
+		android:contentDescription="Volume Down"/>
+
 </RelativeLayout>
+
