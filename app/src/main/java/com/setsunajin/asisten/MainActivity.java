@@ -48,6 +48,7 @@ public class MainActivity extends Activity {
     private Button btnBrowser;
     private Button btnFilemanager;
     private Button btnTerminal;
+	private Button btnRemote;
     private Button btnTask;
     private Button btnServer;
     private Button btnSqlite;
@@ -185,6 +186,18 @@ public class MainActivity extends Activity {
                 startActivity(new Intent(MainActivity.this, MainTerminal.class));
             }
         });
+		
+		btnRemote = (Button)findViewById(R.id.main_btn_remote);
+        btnRemote.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					consoleText.append(consoleLog+"Remote audacious opening ...\n");
+					setLog(MainActivity.this, consoleLog+"Remote audacious opening ...\n");
+					consoleFocus();
+
+					startActivity(new Intent(MainActivity.this, MainBrowserNotif.class));
+				}
+			});
 
         btnSqlite = (Button)findViewById(R.id.main_btn_sqlite);
         btnSqlite.setOnClickListener(new View.OnClickListener() {
