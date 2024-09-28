@@ -21,6 +21,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import android.webkit.*;
+
+import android.media.AudioManager;
+import android.view.*;
 
 public class MainBrowserNotif extends Activity {
 
@@ -32,16 +36,29 @@ public class MainBrowserNotif extends Activity {
     private static final String ACTION_VOLUME_UP = "ACTION_VOLUME_UP";
     private static final String ACTION_VOLUME_DOWN = "ACTION_VOLUME_DOWN";
     private Handler handler;
+	
+	private AudioManager audioManager;
+	
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+		audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+		
         handler = new Handler(Looper.getMainLooper());
 
         // Create and set the WebView
         WebView webView = new WebView(this);
-        webView.getSettings().setJavaScriptEnabled(true);
+		webView.getSettings().setDomStorageEnabled(true);
+		
+		webView.setWebChromeClient(new WebChromeClient());
+		webView.setWebViewClient(new WebViewClient());
+		webView.clearCache(true);
+		webView.clearHistory();
+		webView.getSettings().setJavaScriptEnabled(true);
+		webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+		
         webView.loadUrl(rUrl);
         setContentView(webView);
 
@@ -95,6 +112,33 @@ public class MainBrowserNotif extends Activity {
         // Get the NotificationManager and show the notification
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(1, builder.build());
+    }
+	
+	@Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
+            // Tombol Volume Naik ditekan
+            // Tambahkan logika Anda di sini
+			
+			sendGetRequest(rUrl+"/control?command=volumeup");
+            return true; // Kembalikan true jika Anda ingin mencegah aksi default
+        } else if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+            // Tombol Volume Turun ditekan
+            // Tambahkan logika Anda di sini
+			sendGetRequest(rUrl+"/control?command=volumedown");
+            return true; // Kembalikan true jika Anda ingin mencegah aksi default
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_VOLUME_UP || keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+            // Tombol Volume dilepaskan
+            // Tambahkan logika Anda di sini jika diperlukan
+            return true;
+        }
+        return super.onKeyUp(keyCode, event);
     }
 
     private final BroadcastReceiver mediaActionReceiver = new BroadcastReceiver() {
@@ -206,7 +250,7 @@ public class MainBrowserNotif extends Activity {
             NotificationChannel channel = new NotificationChannel(
                     CHANNEL_ID,
                     "Media Channel",
-                    NotificationManager.IMPORTANCE_DEFAULT
+                    NotificationManager.IMPORTANCE_HIGH
             );
             NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             manager.createNotificationChannel(channel);
