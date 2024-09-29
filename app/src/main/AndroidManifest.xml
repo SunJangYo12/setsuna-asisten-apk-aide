@@ -72,6 +72,9 @@
         <activity android:name="com.setsunajin.asisten.memori.MainMemori" android:label="Memori Manager"></activity>
         <activity android:name="com.setsunajin.asisten.task.MainTaskManager" android:label="Task Manager"></activity>
         <activity android:name="com.setsunajin.asisten.task.TaskList" android:label="Task Manager"></activity>
+		
+		<activity android:name="com.setsunajin.asisten.MainReadJson" android:label="JSON to clipboard"></activity>
+		
 
         <service
             android:name="com.setsunajin.asisten.MainMouse"

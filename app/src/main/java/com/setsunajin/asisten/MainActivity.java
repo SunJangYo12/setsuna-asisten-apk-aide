@@ -51,6 +51,7 @@ public class MainActivity extends Activity {
 	private Button btnRemote;
     private Button btnTask;
     private Button btnServer;
+	private Button btnReadjson;
     private Button btnSqlite;
     private Button btnSubdomner;
     private Button btnPengaturan;
@@ -137,6 +138,15 @@ public class MainActivity extends Activity {
                 MainActivity.this.finish();
             }
         });
+		
+		btnReadjson = (Button)findViewById(R.id.main_btn_readjson);
+        btnReadjson.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					
+					startActivity(new Intent(MainActivity.this, MainReadJson.class));
+				}
+			});
 
         btnFilemanager = (Button)findViewById(R.id.main_btn_filemanager);
         btnFilemanager.setOnClickListener(new View.OnClickListener() {

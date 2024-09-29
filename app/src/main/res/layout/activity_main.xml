@@ -36,6 +36,28 @@
                     android:id="@+id/main_btn_objviewer"
                     android:text="Objviewer" />
             </LinearLayout>
+			
+			<LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="50dp"
+                    android:id="@+id/main_btn_tes"
+                    android:text="Tes" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/main_btn_readjson"
+                    android:layout_marginRight="50dp"
+                    android:text="read json" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
