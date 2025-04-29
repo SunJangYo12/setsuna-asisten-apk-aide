@@ -25,10 +25,11 @@ import android.webkit.*;
 
 import android.media.AudioManager;
 import android.view.*;
+import com.setsunajin.asisten.memori.*;
 
 public class MainBrowserNotif extends Activity {
 
-    private static final String rUrl = "http://192.168.43.53:8080";
+    private static String rUrl = "http://192.168.43.53:8080";
     private static final String CHANNEL_ID = "MEDIA_CHANNEL_ID";
     private static final String ACTION_PREV = "ACTION_PREV";
     private static final String ACTION_PAUSE = "ACTION_PAUSE";
@@ -38,7 +39,7 @@ public class MainBrowserNotif extends Activity {
     private Handler handler;
 	
 	private AudioManager audioManager;
-	
+	private SharedMemori shMemori;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,14 @@ public class MainBrowserNotif extends Activity {
 		audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 		
         handler = new Handler(Looper.getMainLooper());
-
+		shMemori = new SharedMemori(this);
+		
+		String sharedIp = shMemori.getStrSharedMemori("remote_audacious");
+		if (sharedIp != "") {
+			rUrl = "http://"+sharedIp;
+		}
+		
+		Toast.makeText(this, "remote ip "+rUrl, Toast.LENGTH_LONG).show();
         // Create and set the WebView
         WebView webView = new WebView(this);
 		webView.getSettings().setDomStorageEnabled(true);

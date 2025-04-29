@@ -13,6 +13,7 @@ import android.app.Activity;
 
 import com.setsunajin.asisten.memori.SharedMemori;
 import com.setsunajin.asisten.task.ServiceStatus;
+import android.widget.*;
 
 public class MainPengaturan extends Activity {
     private SharedMemori shMemori;
@@ -57,6 +58,19 @@ public class MainPengaturan extends Activity {
             }
         });
         swNotifi.setChecked(shMemori.getSharedMemori("notifi_catatan"));
+		
+		final EditText edtAuda = (EditText)findViewById(R.id.pengaturan_edt_remoteaudacious);
+		edtAuda.setText(shMemori.getStrSharedMemori("remote_audacious"));
+		
+		TextView txtAuda = (TextView)findViewById(R.id.pengaturan_txt_remoteaudacious);
+        txtAuda.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					shMemori.setStrSharedMemori("remote_audacious", edtAuda.getText().toString());
+					Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_LONG).show();
+				}
+			});
+        
     }
 
     @Override
