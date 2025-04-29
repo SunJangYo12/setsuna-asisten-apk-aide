@@ -111,7 +111,7 @@ public class MainFileManager extends Activity implements AdapterView.OnItemClick
             }
             prevPath = calcBackPath();
         }catch (Exception e) {
-            Toast.makeText(this, "Check setting permission!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Check setting permission!: "+e, Toast.LENGTH_LONG).show();
         }
 
         try {

@@ -129,9 +129,21 @@ public class MainReadJson extends Activity
 						
 						String fileContent = readFile(fullname+"/tag.txt");
 						
-						String out = fileContent.replace("\n", ",");
+						String[] xx = fileContent.split("\n");
+						StringBuilder mout = new StringBuilder();
+						
+						for (int i=0; i<xx.length;i++)
+						{
+							if (i<3) {
+								mout.append(xx[i]+"\n");
+							}
+						}
+						
+						String out = mout.toString().replace("\n", ",");
 						
 						copyToClipboard(out);
+						
+						
 					}
 				});
         } else {

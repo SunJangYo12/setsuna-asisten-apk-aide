@@ -74,6 +74,7 @@
         <activity android:name="com.setsunajin.asisten.task.TaskList" android:label="Task Manager"></activity>
 		
 		<activity android:name="com.setsunajin.asisten.MainReadJson" android:label="JSON to clipboard"></activity>
+		<activity android:name="com.setsunajin.asisten.MainRemoteClip" android:label="Server to clipboard"></activity>
 		
 
         <service
