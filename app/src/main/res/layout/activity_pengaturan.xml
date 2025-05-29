@@ -52,7 +52,21 @@
 				android:layout_height="45dp"
 				android:layout_marginTop="-30dp"
 				android:layout_marginLeft="20dp"
-				android:hint="ip:port"/>
+				android:hint="ip:port  --> click title to saved."/>
+			<Switch
+				android:id="@+id/pengaturan_sw_audac_notif"
+				android:layout_width="267dp"
+				android:layout_height="52dp"
+				android:layout_marginLeft="20dp"
+				android:layout_weight="1"
+				android:text="audacious notif"/>
+			<Switch
+				android:id="@+id/pengaturan_sw_audac_overlay"
+				android:layout_width="267dp"
+				android:layout_height="52dp"
+				android:layout_marginLeft="20dp"
+				android:layout_weight="1"
+				android:text="audacious overlay"/>
 
 		</LinearLayout>
 

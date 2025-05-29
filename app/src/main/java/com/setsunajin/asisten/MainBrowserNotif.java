@@ -27,9 +27,12 @@ import android.media.AudioManager;
 import android.view.*;
 import com.setsunajin.asisten.memori.*;
 
+import android.provider.Settings;
+import android.net.Uri;
+
 public class MainBrowserNotif extends Activity {
 
-    private static String rUrl = "http://192.168.43.53:8080";
+    public static String rUrl = "http://192.168.43.53:8080";
     private static final String CHANNEL_ID = "MEDIA_CHANNEL_ID";
     private static final String ACTION_PREV = "ACTION_PREV";
     private static final String ACTION_PAUSE = "ACTION_PAUSE";
@@ -40,6 +43,9 @@ public class MainBrowserNotif extends Activity {
 	
 	private AudioManager audioManager;
 	private SharedMemori shMemori;
+    private Boolean sharedNotifi;
+
+    private static final int REQUEST_OVERLAY = 1234;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,18 +76,55 @@ public class MainBrowserNotif extends Activity {
         webView.loadUrl(rUrl);
         setContentView(webView);
 
-        // Register BroadcastReceiver
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(ACTION_PREV);
-        filter.addAction(ACTION_PAUSE);
-        filter.addAction(ACTION_NEXT);
-        filter.addAction(ACTION_VOLUME_UP);
-        filter.addAction(ACTION_VOLUME_DOWN);
-        registerReceiver(mediaActionReceiver, filter);
 
-        // Show media notification
-        showMediaNotification();
+        sharedNotifi = shMemori.getSharedMemori("notifi_audacious");
+        if (sharedNotifi)
+        {
+            // Register BroadcastReceiver
+            IntentFilter filter = new IntentFilter();
+            filter.addAction(ACTION_PREV);
+            filter.addAction(ACTION_PAUSE);
+            filter.addAction(ACTION_NEXT);
+            filter.addAction(ACTION_VOLUME_UP);
+            filter.addAction(ACTION_VOLUME_DOWN);
+            registerReceiver(mediaActionReceiver, filter);
+
+            showMediaNotification();
+            Toast.makeText(this, "Notification media", Toast.LENGTH_LONG).show();
+        }
+
+
+        Boolean sharedOverlay = shMemori.getSharedMemori("overlay_audacious");
+        if (sharedOverlay)
+        {
+            Toast.makeText(this, "Overlay media", Toast.LENGTH_LONG).show();
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                        Uri.parse("package:" + getPackageName()));
+                startActivityForResult(intent, REQUEST_OVERLAY);
+            } else {
+                startFloatingService();
+            }
+        }
+        
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_OVERLAY) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M || Settings.canDrawOverlays(this)) {
+                startFloatingService();
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+    private void startFloatingService() {
+        Intent serviceIntent = new Intent(this, FloatingWindowService.class);
+        startService(serviceIntent);
+    }
+
+
 
     private void showMediaNotification() {
         // Create intents for media buttons
@@ -268,7 +311,11 @@ public class MainBrowserNotif extends Activity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        // Unregister the BroadcastReceiver
-        unregisterReceiver(mediaActionReceiver);
+
+        if (sharedNotifi)
+        {
+            // Unregister the BroadcastReceiver
+            unregisterReceiver(mediaActionReceiver);
+        }
     }
 }

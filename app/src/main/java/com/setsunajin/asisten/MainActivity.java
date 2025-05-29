@@ -27,6 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+
 public class MainActivity extends Activity {
 
     // Used to load the 'native-lib' library on application startup.

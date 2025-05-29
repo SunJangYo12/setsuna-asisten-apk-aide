@@ -70,7 +70,24 @@ public class MainPengaturan extends Activity {
 					Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_LONG).show();
 				}
 			});
-        
+
+        final Switch swAudaNotifi = (Switch)findViewById(R.id.pengaturan_sw_audac_notif);
+        swAudaNotifi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shMemori.setSharedMemori("notifi_audacious", swAudaNotifi.isChecked());
+            }
+        });
+        swAudaNotifi.setChecked(shMemori.getSharedMemori("notifi_audacious"));
+
+        final Switch swAudaOverlay = (Switch)findViewById(R.id.pengaturan_sw_audac_overlay);
+        swAudaOverlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                shMemori.setSharedMemori("overlay_audacious", swAudaOverlay.isChecked());
+            }
+        });
+        swAudaOverlay.setChecked(shMemori.getSharedMemori("overlay_audacious"));
     }
 
     @Override
