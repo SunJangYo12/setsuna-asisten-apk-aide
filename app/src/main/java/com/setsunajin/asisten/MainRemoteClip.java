@@ -7,6 +7,10 @@ import java.util.concurrent.*;
 import android.widget.*;
 import android.view.View.*;
 import android.view.*;
+import android.content.ClipboardManager;
+import android.content.ClipData;
+import android.content.Context;
+
 
 public class MainRemoteClip extends Activity
 {
@@ -35,6 +39,15 @@ public class MainRemoteClip extends Activity
 				MainRemoteClip.this.finish();
 			}
 		});
+		
+		
+	}
+	
+	private void copyToClipboard(String text) {
+		ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+		ClipData clip = ClipData.newPlainText("Copied Text", text);
+		clipboard.setPrimaryClip(clip);
+		Toast.makeText(this, "Teks disalin ke clipboard", Toast.LENGTH_SHORT).show();
 	}
 	
 	
@@ -54,6 +67,7 @@ public class MainRemoteClip extends Activity
 				public void run() {
 					if ((pesanView != null) && (pesan != null)) {
 						msgView.setText(pesan);
+						copyToClipboard(pesan);
 					}
 				}
 			});

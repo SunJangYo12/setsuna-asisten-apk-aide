@@ -9,6 +9,7 @@
 		android:id="@+id/clip_remote_close"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:layout_gravity="center"
 		android:text="Close"/>
 	
 	<TextView
