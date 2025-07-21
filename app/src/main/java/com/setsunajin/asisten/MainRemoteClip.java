@@ -84,13 +84,24 @@ public class MainRemoteClip extends Activity
                     tampilkanPesan("Menunggu koneksi diport 9090");
                     try (Socket socket = serverSocket.accept()) {
                         tampilkanPesan("Terhubung dengan "+socket.getInetAddress().getHostAddress());
-                        try (BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
-                            String pesan;
-                            while ((pesan = in.readLine()) != null) {
-                                
-								tampilkanMsg(pesan);
-                            }
-                        }
+						
+						try (InputStream inputStream = socket.getInputStream()) {
+							ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+							
+							byte[] data = new byte[1024];
+							int nRead;
+							
+							while ((nRead = inputStream.read(data, 0, data.length)) != -1)
+							{
+								buffer.write(data, 0, nRead);
+							}
+							
+							String pesan = buffer.toString("UTF-8");
+							tampilkanMsg(pesan);
+						}
+						
+						
+                        
                     }
                     tampilkanPesan("Koneksi tutup");
                 }
